@@ -12,7 +12,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_and_test:
+  build_and_test_client:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,7 +26,22 @@ jobs:
         run: |
           cd ./client
           npm test
-        
+
+  build_and_test_server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install server
+        run: |
+          cd ./server
+          npm ci
+
+      - name: test server
+        run: |
+          cd ./server
+          npm test
+
 #   build_client:
 #     runs-on: ubuntu-latest
 #     steps:
