@@ -17,19 +17,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         
-      - name: cd into ./client
-        run: cd ./client    
-      - name: npm ci
-        run: npm ci
+      - name: install client
+        run: |
+          cd ./client
+          npm ci
         
   test_client:
     runs-on: ubuntu-latest
     steps:
         
-      - name: cd into ./client
-        run: cd ./client
-      - name: Run client test
-        run: npm test
+      - name: test client
+        run: |
+          cd ./client
+          npm test
         
 #   build_client:
 #     runs-on: ubuntu-latest
