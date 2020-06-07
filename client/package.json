@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docker-build:dev": "docker build -t zrtc-client:dev .",
-    "docker-run:dev": "docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true zrtc-client:dev"
+    "docker-run:dev": "docker run -it --rm -v ${PWD}:/client -v /client/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true zrtc-client:dev"
   },
   "eslintConfig": {
     "extends": "react-app"
