@@ -1,5 +1,8 @@
 # Z RTC
 
+![CI](https://github.com/p0cket/Zrtc/workflows/CI/badge.svg)
+
+
 A Project to play around with RTC
 
 ## Architecture
