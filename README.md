@@ -23,18 +23,47 @@ $ docker-compose up --build
 
 If not using `docker-compose`, you have to treat the client and server separately, using 2 different terminal sessions if you want to do development with both.
 
+#### pre-reqs
+
+Using the current NodeJS LTS version is reccomended. At the time of writing, it is NodeJS v12. Verify your current version with `node --version`
+
+> Tip: Consider using a tool like [`nvm`](https://github.com/nvm-sh/nvm) to manage your node versions.
+
 #### The server
+
+##### Install dependencies
 
 ```console
 $ cd server/
 $ npm install
-$ npm start
 ```
 
+##### npm scripts
+
+> Tip: run `$ npm run` to see all the available npm scripts in a node project.
+
+- `$ npm start`: runs the server in dev-mode with file-watching and auto-reload (alias for `npm run start:dev`)
+- `$ npm test`: runs the unit test suite
+- `$ npm run start:dev` - starts the server in dev-mode with file-watching and auto-reload (use `npm start` as a shortcut)
+- `$ npm run start:prod` - runs the server in prod-mode
+- `$ npm run docker-build:dev` - builds the docker image
+- `$ npm run docker-run:dev` runs the docker image
+
 #### The client
+
+##### Install dependencies
 
 ```console
 $ cd client/
 $ npm install
-$ npm start
 ```
+
+##### npm scripts
+
+> Tip: run `$ npm run` to see all the available npm scripts in a node project.
+
+- `$ npm start` - runs client in dev-mode
+- `$ npm test` - runs unit test suite
+- `$ npm run build` - builds the client for distribution
+- `$ npm run docker-build:dev` - builds the (dev) docker image
+- `$ npm run docker-run:dev` - runs the dev docker image
