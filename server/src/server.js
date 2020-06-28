@@ -4,7 +4,7 @@ const socketIo = require("socket.io");
 
 const PORT = 8000;
 
-function startSever () {
+function startServer () {
     return new Promise((resolve) => {
         const app = express();
 
@@ -28,5 +28,5 @@ function startSever () {
 
 
 module.exports = {
-    startSever,
+    startServer,
 }
