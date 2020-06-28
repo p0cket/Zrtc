@@ -1,22 +1,11 @@
 // import io from 'socket.io'
 import React from 'react';
 import logo from './logo.svg';
+
+import Video from './Video'
 import './App.css';
 
 function App() {
-  navigator.getUserMedia(
-    { video: true, audio: true },
-    stream => {
-      const localVideo = document.getElementById("local-video");
-      if (localVideo) {
-        (localVideo as any).srcObject = stream;
-      }
-    },
-    error => {
-      console.warn(error.message);
-    }
-  );
-
   return (
     <div className="App">
       <header className="App-header">
@@ -33,19 +22,7 @@ function App() {
           Learn RTS
         </a>
       </header>
-      <div>
-        <video
-          autoPlay
-          className="remote-video"
-          id="remote-video"
-        ></video>
-        <video
-          autoPlay
-          muted
-          className="local-video"
-          id="local-video"
-        ></video>
-      </div>
+      <Video />
     </div>
   );
 }
