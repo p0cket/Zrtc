@@ -1,6 +1,6 @@
 # Z RTC
 
-![CI](https://github.com/p0cket/Zrtc/workflows/CI/badge.svg)
+[![CI](https://github.com/p0cket/Zrtc/workflows/CI/badge.svg)](https://github.com/p0cket/Zrtc/actions?query=workflow%3ACI)
 
 
 A Project to play around with RTC
