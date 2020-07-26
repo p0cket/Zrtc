@@ -1,6 +1,6 @@
-const { startSever } = require('./server')
+const { startServer } = require('./server')
 
-startSever()
+startServer()
     .then(({ port }) => {
         console.info(`server started at http://localhost:${port}`)
     })
