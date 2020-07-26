@@ -1,8 +1,6 @@
 // import io from 'socket.io'
 import React from 'react';
 import logo from './logo.svg';
-
-import Video from './Video'
 import './App.css';
 
 function App() {
@@ -22,7 +20,6 @@ function App() {
           Learn RTS
         </a>
       </header>
-      <Video />
     </div>
   );
 }
