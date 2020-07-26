@@ -1,9 +1,19 @@
-// import io from 'socket.io'
+import Peer from 'simple-peer';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const peer = new Peer({
+    initiator: true,
+    trickle: false,
+  });
+
+  peer.on('error', console.error.bind(console, 'error'));
+  peer.on('signal', console.info.bind(console, 'signal'));
+  peer.on('connect', console.log.bind(console, 'connect'));
+  peer.on('data', console.log.bind(console, 'data'));
+
   return (
     <div className="App">
       <header className="App-header">
