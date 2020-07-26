@@ -1,5 +1,6 @@
 const http = require("http");
-const express= require("express");
+const express = require("express");
+const bodyParser = require("body-parser");
 const socketIo = require("socket.io");
 
 const PORT = 8000;
@@ -8,8 +9,11 @@ function startServer () {
     return new Promise((resolve) => {
         const app = express();
 
+        app.use(bodyParser.urlencoded({ extended: false }))
+        app.use(bodyParser.json())
+
         app.get("/", (req, res) => {
-            res.send({ foo: 'bar' }); 
+            res.send({ foo: 'bar' });
         });
 
         app.post("/offer", (req, res) => {
