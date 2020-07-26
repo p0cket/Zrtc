@@ -12,6 +12,11 @@ function startServer () {
             res.send({ foo: 'bar' }); 
         });
 
+        app.post("/offer", (req, res) => {
+            console.info('POST /offer req', req);
+            res.send({ bar: 'baz' })
+        })
+
         const httpServer = http.createServer(app);
         const io = socketIo(httpServer);
         io.on("connection", socket => {
