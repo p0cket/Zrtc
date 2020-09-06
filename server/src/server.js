@@ -5,6 +5,8 @@ const socketIo = require("socket.io");
 
 const PORT = 8000;
 
+let currentOffer = null;
+
 function startServer () {
     return new Promise((resolve) => {
         const app = express();
@@ -17,8 +19,13 @@ function startServer () {
         });
 
         app.post("/offer", (req, res) => {
+            currentOffer = req.body;
             console.info('POST /offer req', req);
             res.send({ bar: 'baz' })
+        })
+
+        app.get("/offer", (req, res) => {
+            res.send(currentOffer);
         })
 
         const httpServer = http.createServer(app);
