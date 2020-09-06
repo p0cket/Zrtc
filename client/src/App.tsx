@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Peer from 'simple-peer';
 import React from 'react';
 import logo from './logo.svg';
@@ -10,7 +11,12 @@ function App() {
   });
 
   peer.on('error', console.error.bind(console, 'error'));
-  peer.on('signal', console.info.bind(console, 'signal'));
+  peer.on('signal', (offer) => {
+    console.log('signal', offer);
+    axios.post('/offer', offer)
+      .then(console.log.bind(console, 'offer success'))
+      .catch(console.error.bind(console, 'offer error'))
+  });
   peer.on('connect', console.log.bind(console, 'connect'));
   peer.on('data', console.log.bind(console, 'data'));
 
