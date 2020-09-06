@@ -40,6 +40,8 @@ function App() {
           Learn RTS
         </a>
         <button onClick={sendOffer} >SendOffer</button>
+        <button>GetOffer</button>
+        {/* @TODO Get offer from Server */}
       </header>
     </div>
   );
