@@ -1,35 +1,10 @@
-import axios from 'axios';
-import Peer from 'simple-peer';
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import initiateConnection from "./initiate-connection";
+import recieveConnection from "./recieve-connection";
 
 function App() {
-
-
-  const sendOffer = () => {
-    const peer = new Peer({
-      initiator: true,
-      trickle: false,
-    });
-
-    peer.on('error', console.error.bind(console, 'error'));
-    peer.on('signal', (offer) => {
-      console.log('signal', offer);
-      axios.post('/offer', offer)
-        .then(console.log.bind(console, 'offer success'))
-        .catch(console.error.bind(console, 'offer error'))
-    });
-    peer.on('connect', console.log.bind(console, 'connect'));
-    peer.on('data', console.log.bind(console, 'data'));
-  }
-
-  const getOffer = () => {
-    axios.get('/offer')
-      .then(console.log.bind(console, 'GET offer success'))
-      .catch(console.error.bind(console, 'GET offer error'))
-  }
-
   return (
     <div className="App">
       <header className="App-header">
@@ -45,8 +20,8 @@ function App() {
         >
           Learn RTS
         </a>
-        <button onClick={sendOffer} >SendOffer</button>
-        <button onClick={getOffer}>GetOffer</button>
+        <button onClick={initiateConnection}>SendOffer</button>
+        <button onClick={recieveConnection}>GetOffer</button>
       </header>
     </div>
   );
