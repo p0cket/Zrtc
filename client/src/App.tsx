@@ -24,6 +24,12 @@ function App() {
     peer.on('data', console.log.bind(console, 'data'));
   }
 
+  const getOffer = () => {
+    axios.get('/offer')
+      .then(console.log.bind(console, 'GET offer success'))
+      .catch(console.error.bind(console, 'GET offer error'))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,8 +46,7 @@ function App() {
           Learn RTS
         </a>
         <button onClick={sendOffer} >SendOffer</button>
-        <button>GetOffer</button>
-        {/* @TODO Get offer from Server */}
+        <button onClick={getOffer}>GetOffer</button>
       </header>
     </div>
   );
