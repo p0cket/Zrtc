@@ -11,17 +11,13 @@ function startServer () {
     return new Promise((resolve) => {
         const app = express();
 
-        app.use(bodyParser.urlencoded({ extended: false }))
-        app.use(bodyParser.json())
-
-        app.get("/", (req, res) => {
-            res.send({ foo: 'bar' });
-        });
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use(bodyParser.json());
 
         app.post("/offer", (req, res) => {
             currentOffer = req.body;
             console.info('POST /offer req', req);
-            res.send({ bar: 'baz' })
+            res.status(200).send('offer recieved');
         })
 
         app.get("/offer", (req, res) => {
