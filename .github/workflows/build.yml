@@ -47,3 +47,10 @@ jobs:
           cd ./server
           npm test
 
+      - name: build server
+        run: |
+          cd ./server
+          docker build \
+            --file Dockerfile.prod \
+            --tag zrtc-server:latest \
+            .
