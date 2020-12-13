@@ -27,6 +27,11 @@ jobs:
           cd ./client
           npm test
 
+      - name: build client
+        run: |
+          cd ./client
+          npm run build
+
   build_and_test_server:
     runs-on: ubuntu-latest
     steps:
