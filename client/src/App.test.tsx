@@ -7,10 +7,8 @@ describe('App', () => {
     global.navigator.getUserMedia = jest.fn();
   });
 
-  it('renders learn react link', () => {
-    const { getByText } = render(<App />);
-    const linkElement = getByText(/learn rts/i);
-    expect(linkElement).toBeInTheDocument();
+  it('matches the snapshot', () => {
+    const { asFragment } = render(<App />);
+    expect(asFragment()).toMatchSnapshot();
   });
-})
-
+});
