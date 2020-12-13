@@ -49,6 +49,16 @@ $ npm install
 - `$ npm run docker-build:dev` - builds the docker image
 - `$ npm run docker-run:dev` runs the docker image
 
+##### Docker stuff
+
+Right now, we publish this to Docker hub as `zlysobey/zrtc-server:latest`
+
+Try running it!
+
+```
+$ docker run -p 8000:8000 zlysobey/zrtc-server:latest
+```
+
 #### The client
 
 ##### Install dependencies
